@@ -8,10 +8,10 @@ const PORT = process.env.PORT || 3000;
 // redirect https request to http
 // to fix openWeatherMap http only issue
 app.use(function (req, res, next) {
-  if (req.headers['x-forwarded-proto'] === 'http') {
-    next();
-  } else {
+  if (req.headers['x-forwarded-proto'] === 'https') { // does not exist on localhost
     res.redirect('http://' + req.hostname + req.url);
+  } else {
+    next();
   }
 })
 app.use(express.static('public'));
