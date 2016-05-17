@@ -3,4 +3,3 @@ npm-debug.log
 build
 .DS_Store
 .idea
-public/bundle.js
