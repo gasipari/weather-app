@@ -37,7 +37,7 @@ Runs eslint on all js and jsx files under app/ directory.
 	│        ├─ WeatherForm.jsx		: form component for weather
 	│        └─ WeatherMessage.jsx	: weather message component
 	│     ├─ styles/					: all sass/scss styles for the frontend
-	│     │  └─app.scss                : entry for styles
+	│     │  └─app.scss               : entry for styles
 	│     └─ app.jsx					: root view-controller
     ├─ public/						 : folder for bundle output
     ├─ package.json					 : node configuration file with list of 3rd party libraries and utilities
