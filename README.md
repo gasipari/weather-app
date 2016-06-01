@@ -28,14 +28,14 @@ Runs eslint on all js and jsx files under app/ directory.
 	│        └─ openWeatherMap.jsx	: custom component for openWeatherMap API
     │     └─ components/				: react components
 	│        ├─ About.jsx				: presentational component for About page
-	│        ├─ ErrorModal.jsx			: component for Error Modal
+	│        ├─ ErrorModal.jsx		: component for Error Modal
 	│        ├─ Examples.jsx			: presentational component for Examples page
 	│        ├─ Main.jsx				: main component of the app
-	│        ├─ Map.jsx					: component that shows a selected city on a Map
-	│        ├─ Nav.jsx					: navigation component
-	│        ├─ Weather.jsx				: weather component
-	│        ├─ WeatherForm.jsx			: form component for weather
-	│        └─ WeatherMessage.jsx		: weather message component
+	│        ├─ Map.jsx				: component that shows a selected city on a Map
+	│        ├─ Nav.jsx				: navigation component
+	│        ├─ Weather.jsx			: weather component
+	│        ├─ WeatherForm.jsx		: form component for weather
+	│        └─ WeatherMessage.jsx	: weather message component
 	│     ├─ styles/					: all sass/scss styles for the frontend
 	│     │  └─app.scss                 : entry for styles
 	│     └─ app.jsx					: root view-controller
