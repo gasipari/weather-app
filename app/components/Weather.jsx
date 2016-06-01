@@ -3,6 +3,8 @@ var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 var openWeatherMap = require('openWeatherMap');
 var ErrorModal = require('ErrorModal');
+var Map = require('Map');
+var googleMap = require('googleMap');
 
 var Weather = React.createClass({
   //
@@ -11,11 +13,8 @@ var Weather = React.createClass({
       isLoading: false
     }
   },
-
-  //
   handleSearch: function (location) {
     var that = this;
-
     this.setState({
       isLoading: true,
       errorMessage: undefined,
@@ -24,11 +23,21 @@ var Weather = React.createClass({
     });
 
     openWeatherMap.getTemp(location).then(function (temp) {
-      that.setState({
-        location: location,
-        temp: temp,
-        isLoading: false
-      })
+      //
+      googleMap.getGeographicCoordinate(location).then(function (coordinate) {
+        that.setState({
+          location: location,
+          temp: temp,
+          coordinate: coordinate,
+          isLoading: false
+        })
+
+      }, function (e) {
+          that.setState({
+            isLoading: false,
+            errorMessage: e.message
+          })
+      });
     }, function (e) {
         that.setState({
           isLoading: false,
@@ -40,8 +49,6 @@ var Weather = React.createClass({
     //   temp: 23
     // })
   },
-
-
   componentDidMount: function () {
     var location = this.props.location.query.location;
 
@@ -62,13 +69,17 @@ var Weather = React.createClass({
     }
   },
   render: function () {
-    var {isLoading, location, temp, errorMessage} = this.state;
-
+    var {isLoading, location, temp, errorMessage, coordinate} = this.state;
     function renderMessage () {
       if (isLoading) {
         return <h3 className="text-center">Fetching weather...</h3>
       } else if (temp && location) {
-        return <WeatherMessage location={location} temp={temp}/>
+        return (
+          <div>
+            <WeatherMessage location={location} temp={temp}/>
+            <Map coordinate={coordinate} location={location} />
+          </div>
+        )
       }
     }
 
@@ -82,7 +93,7 @@ var Weather = React.createClass({
 
     return (
       <div>
-        <h1 className="text-center page-title" >Get Weather</h1>
+        <h2 className="text-center page-title" >Get Weather</h2>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}
         {renderError()}
