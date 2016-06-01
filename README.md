@@ -25,7 +25,7 @@ Runs eslint on all js and jsx files under app/ directory.
 	├─ app/
     │     ├─ api/						: third party API related components
     │        ├─ googleMap.jsx			: custom component for googleMap API
-	│        └─ openWeatherMap.jsx		: custom component for openWeatherMap API
+	│        └─ openWeatherMap.jsx	: custom component for openWeatherMap API
     │     └─ components/				: react components
 	│        ├─ About.jsx				: presentational component for About page
 	│        ├─ ErrorModal.jsx			: component for Error Modal
