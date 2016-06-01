@@ -1,17 +1,17 @@
-import React from 'react';
-import { GoogleMap, GoogleMapLoader, Marker} from 'react-google-maps';
+import React from "react";
+import { GoogleMap, GoogleMapLoader, Marker} from "react-google-maps";
 
-var Map = React.createClass({
+const Map = React.createClass({
 
-render: function (){
-  const {coordinate} = this.props;
-  return (
+    render: function (){
+        const {coordinate} = this.props;
+        return (
     <div>
     <GoogleMapLoader
       containerElement={
         <div
           style={{
-            height: '300px',
+              height: "300px"
           }}
         />
       }
@@ -25,7 +25,7 @@ render: function (){
     />
   </div>
   );
-  }
-})
+    }
+});
 
 module.exports = Map;

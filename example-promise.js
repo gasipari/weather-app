@@ -30,17 +30,17 @@
 // })
 
 function addPromise (a, b) {
-  return new Promise(function(resolve, reject) {
-    if (typeof a === 'number' && typeof b === 'number') {
-      resolve(a+b)
-    }else {
-      reject('a & b should be numbers!')
-    }
-  });
+    return new Promise(function(resolve, reject) {
+        if (typeof a === "number" && typeof b === "number") {
+            resolve(a + b);
+        }else {
+            reject("a & b should be numbers!");
+        }
+    });
 }
 
-addPromise (2,'uiuiu').then(function (sum) {
-  console.log('sucess', sum);
+addPromise (2, "uiuiu").then(function (sum) {
+    console.log("sucess", sum);
 }, function (err) {
-  console.log('error', err);
-})
+    console.log("error", err);
+});

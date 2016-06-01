@@ -1,31 +1,34 @@
-var React = require('react');
-var {Link, IndexLink} = require('react-router');
+import React from "react";
+import {Link, IndexLink} from "react-router";
 
-var Nav = React.createClass({
-  onSearch: function (e){
-    e.preventDefault();
+const Nav = React.createClass({
+    onSearch: function (e){
+        e.preventDefault();
     //
-    var location = this.refs.search.value;
-    var encodedLocation = encodeURIComponent(location);
-    if (location.length > 0) {
-      this.refs.search.value = '';
-      window.location.hash = '#/?location=' + encodedLocation;
-    }
-  },
-  render: function () {
-    return (
+        let location = this.refs.search.value;
+        let encodedLocation = encodeURIComponent(location);
+        if (location.length > 0) {
+            this.refs.search.value = "";
+            window.location.hash = "#/?location=" + encodedLocation;
+        }
+    },
+    render: function () {
+        return (
       <div className="top-bar">
         <div className="top-bar-left">
           <ul className="menu">
             <li className="menu-text">Weather App</li>
             <li>
-              <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
+              <IndexLink to="/" activeClassName="active"
+                activeStyle={{fontWeight: "bold"}}>Get Weather</IndexLink>
             </li>
             <li>
-              <Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</Link>
+              <Link to="/examples" activeClassName="active"
+                activeStyle={{fontWeight: "bold"}}>Examples</Link>
             </li>
             <li>
-              <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
+              <Link to="/about" activeClassName="active"
+                activeStyle={{fontWeight: "bold"}}>About</Link>
             </li>
           </ul>
         </div>
@@ -43,6 +46,6 @@ var Nav = React.createClass({
         </div>
       </div>
     );
-  }
-})
+    }
+});
 module.exports = Nav;

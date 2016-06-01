@@ -1,20 +1,20 @@
-var React = require('react');
+import React from "react";
 
-var WeatherForm = React.createClass({
+const WeatherForm = React.createClass({
 
-  //
-  onFormSubmit: function (e) {
-    e.preventDefault();
+    //
+    onFormSubmit: function (e) {
+        e.preventDefault();
 
-    var location = this.refs.location.value;
-    // validate input
-    if (location.length > 0) {
-      this.refs.location.value= ''; // clear field
-      this.props.onSearch(location);
-    }
-  },
-  render: function () {
-    return (
+        let location = this.refs.location.value;
+        // validate input
+        if (location.length > 0) {
+            this.refs.location.value = ""; // clear field
+            this.props.onSearch(location);
+        }
+    },
+    render: function () {
+        return (
       <div>
         <form onSubmit={this.onFormSubmit}>
           <input type="search" ref="location" placeholder="Search weather by city"/>
@@ -22,7 +22,7 @@ var WeatherForm = React.createClass({
         </form>
       </div>
     );
-  }
+    }
 });
 
 module.exports = WeatherForm;

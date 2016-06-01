@@ -1,22 +1,22 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactDOMServer = require('react-dom/server');
+import React from "react";
+import ReactDOM from "react-dom";
+import ReactDOMServer from "react-dom/server";
 
-var ErrorModal = React.createClass({
+const ErrorModal = React.createClass({
 
-  getDefaultProps: function () {
-    return {
-      title: 'Error'
-    };
-  },
-  propTypes: {
-    title: React.PropTypes.string,
-    message: React.PropTypes.string.isRequired
-  },
+    getDefaultProps: function () {
+        return {
+            title: "Error"
+        };
+    },
+    propTypes: {
+        title: React.PropTypes.string,
+        message: React.PropTypes.string.isRequired
+    },
   // create an instance of foundation modal
-  componentDidMount: function () {
-    var {title, message} = this.props;
-    var modalMarkup = (
+    componentDidMount: function () {
+        let {title, message} = this.props;
+        let modalMarkup = (
       <div id="error-modal" className="reveal tiny text-center" data-reveal="">
         <h4>{title}</h4>
         <p>{message}</p>
@@ -28,17 +28,18 @@ var ErrorModal = React.createClass({
       </div>
     );
 
-    var $modal = $(ReactDOMServer.renderToString(modalMarkup));
-    $(ReactDOM.findDOMNode(this)).html($modal);
+        let $modal = $(ReactDOMServer.renderToString(modalMarkup));
+        $(ReactDOM.findDOMNode(this)).html($modal);
 
-    var modal = new Foundation.Reveal($('#error-modal'));
-    modal.open();
-  },
-  render: function () {
-    return (
+        /* global Foundation */
+        let modal = new Foundation.Reveal($("#error-modal"));
+        modal.open();
+    },
+    render: function () {
+        return (
       <div></div>
-    )
-  }
-})
+    );
+    }
+});
 
 module.exports = ErrorModal;

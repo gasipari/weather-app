@@ -1,8 +1,8 @@
-var React = require('react');
-var Nav = require('Nav');
+import React from "react";
+import Nav from "Nav";
 
-var Main = (props) => {
-  return (
+const Main = (props) => {
+    return (
     <div>
       <Nav />
       <div className="row">
@@ -12,6 +12,6 @@ var Main = (props) => {
       </div>
     </div>
   );
-}
+};
 
-module.exports = Main
+module.exports = Main;

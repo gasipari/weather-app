@@ -28,10 +28,10 @@
 
 // statement style
 var addStatement = (a, b) => {
-  return a + b;
-}
+    return a + b;
+};
 console.log(addStatement(3, 10));
 
 // expression style
-var addExpression = (a, b) =>  a + b;
+var addExpression = (a, b) => a + b;
 console.log(addExpression(2, 8));

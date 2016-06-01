@@ -1,7 +1,7 @@
-var React = require('react');
+import React from "react";
 
-var About = (props) => {
-  return (
+const About = () => { // stateless functional components
+    return (
     <div>
       <h1 className="text-center page-title">About</h1>
       <p>This application was build using:</p>
@@ -23,6 +23,6 @@ var About = (props) => {
         target="_blank">repository</a> on github.</p>
   </div>
   );
-}
+};
 
 module.exports = About;

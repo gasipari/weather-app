@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "webpack && node server.js",
+    "lint": "node ./node_modules/eslint/bin/eslint.js --fix --ext .jsx --ext .js app server.js webpack.config.js"
   },
   "author": "Marius Muk",
   "license": "MIT",

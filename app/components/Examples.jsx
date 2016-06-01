@@ -1,8 +1,8 @@
-var React = require('react');
-var {Link} = require('react-router');
+import React from "react";
+import {Link} from "react-router";
 
-var Examples = (props) => {
-  return (
+const Examples = () => { // stateless functional components
+    return (
     <div>
       <h1 className="text-center page-title">Examples</h1>
       <p>Here are a few locations to try out:</p>
@@ -49,6 +49,6 @@ var Examples = (props) => {
       </ol>
     </div>
   );
-}
+};
 
 module.exports = Examples;
