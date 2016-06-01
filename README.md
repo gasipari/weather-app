@@ -1,22 +1,10 @@
-# Weather App using React/Webpack/Axios/Zurb Foundation
+# A Weather App using React
 
 ## Getting Started
 
-### Install Node.js && npm
-
-If you're using Mac or Windows, you can use the installers from [nodejs.org](https://nodejs.org/). If you're using Linux, you can use the installer, or you can check [NodeSource's binary distributions](https://github.com/nodesource/distributions) to see whether or not there's a more recent version that works with your system.
-
-Check Node version
-
-	$ node -v
-The version should be greater than or equal to v4.0.0
-
-Check npm version
-
-	$ npm -v
-The version should be greater than or equal to v3.0.0
-
 ### Install all dependencies
+
+Using [npm](https://www.npmjs.com/):
 
 	$ npm install
 
@@ -34,28 +22,28 @@ Runs eslint on all js and jsx files under app/ directory.
 
 ### Directories & Files
 
-    ├─ src/
-    │     ├─ index.html                 : app entry
-    │     ├─ favicon.ico                : app favicon
-    │     ├─ styles/                    : all sass/scss styles for the frontend
-    │     │  └─main.css                 : entry for styles
-    │     ├─ libs/                      : re-usable 3rd party libraries for front-end
-    │     └─ scripts/                   : all CommonJS modules for front-end
-    │        ├─ index.jsx               : entry; exports root view-controller
-	│        ├─  config/                : configuration files for different environments
-    │        └─ components/     	    : react components
-	│      	    ├─ core/ 		    : a component of the app
-	│      	    ├─ main/ 		    : a component of the app
-	│        		└─[app-component]/ : a component of the app
-	│           	├─ index.js         : entry point; exports view-controller
-	│           	├─ actions.js       : reflux actions for component
-	│           	├─ store.js         : reflux store for component
-	│           	└─ views      	  : app views folder
-    ├─ test/                       	 : folder for all test suites
-    │ └─ e2e                     	   : end to end tests
-    ├─ build/                 	      : folder for compiled output
-    ├─ package.json              	   : node configuration file with list of 3rd party libraries and utilities
-    └─ gulpfile.js               	   : gulp configuration file with list of build tasks
+    ├─ app/
+    │     ├─ api/                   : API related components
+    │        ├─ googleMap.jsx       : custom component for googleMap API
+		│        └─ openWeatherMap.jsx  : custom component for openWeatherMap API
+    │     └─ components/     	    : react components
+		│      	    ├─ About.jsx 		    : presentational component for About page
+		│      	    ├─ ErrorModal.jsx		: component for Error Modal
+		│      			├─ Examples.jsx		  : presentational component for Examples page
+		│      	    ├─ Main.jsx		    : main component of the app
+		│      	    ├─ Map.jsx		    : component that shows a selected city on a Map
+		│      	    ├─ Nav.jsx		    : navigation component
+		│      	    ├─ Weather.jsx		    : weather component
+		│      	    ├─ WeatherForm.jsx		    : form component for weather
+		│        		└─ WeatherMessage.jsx : weather message component
+		│     ├─ styles/                    : all sass/scss styles for the frontend
+		│     │  └─app.scss                 : entry for styles
+		│     └─ app.jsx               : exports root view-controller
+    ├─ public/                 	   : folder for bundle output
+    ├─ package.json              	 : node configuration file with list of 3rd party libraries and utilities
+		├─ server.js              	   : express server
+		├─ webpack.config.js           : webpack configuration file
+    └─ .eslintrc               	   : eslint configuration file
 
 ## Libraries
 
@@ -63,38 +51,24 @@ Runs eslint on all js and jsx files under app/ directory.
 
 | Library                                                 | Purpose                             |
 | ------------------------------------------------------- | ------------------------------------- |
-| [async](https://github.com/caolan/async)                |  Asynchronous JavaScript utility module |
-| [griddle-react](http://griddlegriddle.github.io/Griddle/)| React grid component         				  |
-| [jquery](http://jquery.com/)                            | For its utility methods               |
-| [moment](http://momentjs.com/)                					| Time component for format to any-type       |
-| [object-assign](https://github.com/sindresorhus/object-assign/)| Dependency for react-keep-state    |
-| [react](http://facebook.github.io/react/)               | **View-controller layer**                 |
-| [react-bootstrap](https://react-bootstrap.github.io/ )  | **Bootstrap framework rebuilt for React** |
-| [react-checkbox-group](https://www.npmjs.com/package/react-checkbox-group)|**React package for checkbox working with the DOM** |
-| [react-datepicker](https://www.npmjs.com/package/react-datepicker)| Date Picker component             |
-| [react-dom](https://github.com/facebook/react/)         | **React package for working with the DOM**|
-| [react-router](https://github.com/rackt/react-router/)  | Declarative routing                   |
-| [react-simpletabs](https://github.com/pedronauck/react-simpletabs/)| Tabs component built with React  |
-| [reflux](https://github.com/spoike/refluxjs)            | ** Uni-directional dataflow architecture**  |
-| [underscore](http://underscorejs.org/)         					| Dependency for griddle-react                |
+| [axios](https://github.com/mzabriskie/axios)            | Promise based HTTP client for the browser and node.js      |
+| [express](https://github.com/expressjs/express/)				| Fast, unopinionated, minimalist web framework for Node.js    |
+| [react](http://facebook.github.io/react/)               | View-controller layer                 |
+| [react-dom](https://github.com/facebook/react/)         | React package for working with the DOM  |
+| [react-google-maps](https://github.com/tomchentw/react-google-maps/)| React.js Google Maps integration component|
+| [react-router](https://github.com/rackt/react-router/)  | Routing library for React                  |
 
-### Development Dependencies/Build Toolchain
+### Development Dependencies
 
 | Library/Service                                                          | Purpose                                                                                        |
 | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| [babel-jest](https://github.com/babel/babel-jest/)                       | Jest plugin for [Babel](https://babeljs.io/)                                                    |
-| [babelify](https://github.com/babel/babelify/)                           | An ES6 to ES5 compiler with support for JSX                                                    |
-| [browserify](http://browserify.org/)                                     | CommonJS module system                                                                         |
-| [del](https://github.com/sindresorhus/del/)                              | Delete files/folders                                                                           |
-| [envify](https://github.com/hughsk/envify)                               | Package and share environment variables with client                                                                          |
-| [eslint](https://github.com/eslint/eslint/)                              | Pattern checker for JavaScript                                                                 |
-| [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react/) | React specific linting rules for ESLint                                                        |
-| [gulp](http://gulpjs.com/)                                               | **Streaming build system**                                                                          |
-| [gulp-webserver](https://github.com/schickling/gulp-webserver)           | Gulp plugin to run a local webserver with LiveReload                                           |
-| [history](https://github.com/rackt/history)                              | Manage session history in browsers and  testing environments                                   |
-| [jest-cli](https://github.com/facebook/jest)                             | **JavaScript Unit Testing built on top of the Jasmine test framework**                                   |
-| [protractor](https://github.com/angular/protractor)                      | **End-to-end test framework built on top of the selenium's WebDriverJS**                                   |
-| [react-addons-test-utils](http://facebook.github.io/react/docs/addons.html)| **React helpers for writing test cases** 										                                   |
-| [run-sequence](https://github.com/OverZealous/run-sequence)              | Run a series of dependent gulp tasks in order                                                  |
-| [spin.js](https://github.com/fgnass/spin.js)                             | An animated CSS3 loading spinner 	                                                 |
-| [vinyl-source-stream](https://github.com/hughsk/vinyl-source-stream)     | Use conventional text streams at the start of gulp for nicer interoperability with existing npm|
+| [babel-loader](https://github.com/babel/babel-loader/)                     | Webpack plugin for Babel. It  allows transpiling JavaScript files using Babel and webpack.                                                  
+| [babel](https://github.com/babel/babel/)                              | A compiler for writing next generation JavaScrip (babel-preset-stage-0/babel-preset-react/babel-preset-es2015)                                                                 |
+| [css-loader](https://github.com/webpack/css-loader/) | A css loader module for webpack                                                       |
+| [foundation-sites](https://github.com/zurb/foundation-sites/)        | A responsive front-end framework                                                                        |
+| [jquery](https://github.com/jquery/jquery/)           | jQuery JavaScript Library                                          |
+| [node-sass](https://github.com/sass/node-sass/)                    | Node-sass is a library that provides binding for Node.js to LibSass                                   |
+| [sass-loader](https://github.com/jtangelder/sass-loader/)   | A SASS loader for Webpack                    |
+| [script-loader](https://github.com/webpack/script-loader/)                      | A script loader module for webpack                                  |
+| [style-loader](https://github.com/webpack/style-loader/)| A style loader module for webpack										                                   |
+| [webpack](https://github.com/webpack/webpack/)              | A bundler for javascript. Packs many modules into a few bundled assets.                                                 |
