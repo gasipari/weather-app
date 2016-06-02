@@ -7,7 +7,7 @@ Using [npm](https://www.npmjs.com/):
 	$ npm install
 
 ### Run the application
- This run Webpack and start express
+ Live URL [here](http://rocky-ravine-56154.herokuapp.com/)
 
 	$ npm start
 

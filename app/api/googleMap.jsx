@@ -8,13 +8,13 @@ module.exports = {
 
         let encodedLocation = encodeURIComponent(location);
 
-    // ES6 template string
+        // ES6 template string
         let requestUrl = `${GOOGLE_MAP_GEOCODE_URL}&address=${encodedLocation}`;
 
-    //fetch data
+        //fetch data
         return axios.get(requestUrl).then(function (res) {
             if (res.status != 200) {
-                throw new Error(res.data.message);
+                throw new Error(res.statusText);
             }else {
                 return res.data.results[0].geometry.location;
             }
