@@ -1,7 +1,7 @@
 import React from "react";
 import { GoogleMap, GoogleMapLoader, Marker} from "react-google-maps";
 
-const Map = React.createClass({
+const WeatherMap = React.createClass({
 
     render: function (){
         const {coordinate} = this.props;
@@ -28,4 +28,4 @@ const Map = React.createClass({
     }
 });
 
-module.exports = Map;
+module.exports = WeatherMap;

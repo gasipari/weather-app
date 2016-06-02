@@ -3,7 +3,7 @@ import WeatherForm from "WeatherForm";
 import WeatherMessage from "WeatherMessage";
 import openWeatherMap from "openWeatherMap";
 import ErrorModal from "ErrorModal";
-import Map from "Map";
+import WeatherMap from "WeatherMap";
 import googleMap from "googleMap";
 
 const Weather = React.createClass({
@@ -77,7 +77,7 @@ const Weather = React.createClass({
                 return (
           <div>
             <WeatherMessage location={location} temp={temp}/>
-            <Map coordinate={coordinate} location={location} />
+            <WeatherMap coordinate={coordinate} location={location} />
           </div>
         );
             }
