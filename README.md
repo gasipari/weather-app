@@ -72,3 +72,9 @@ Runs eslint on all js and jsx files under app/ directory.
 | [script-loader](https://github.com/webpack/script-loader/)                      | A script loader module for webpack                                  |
 | [style-loader](https://github.com/webpack/style-loader/)| A style loader module for webpack										                                   |
 | [webpack](https://github.com/webpack/webpack/)              | A bundler for javascript. Packs many modules into a few bundled assets                                                 |
+
+### Component mockup
+
+![alt tag](https://raw.githubusercontent.com/gasipari/weather-app/master/mock/one.png)
+
+![alt tag](https://raw.githubusercontent.com/gasipari/weather-app/master/mock/two.png)
